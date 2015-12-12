@@ -1,0 +1,44 @@
+{
+  "name": "bootstrap-backbone-starter-template",
+  "version": "0.0.1",
+  "description": "Bootstrap and Backbone.js starter web app template.",
+  "keywords": [
+    "bootstrap",
+    "backbone",
+    "backbonejs",
+    "bootstrap starter template"
+  ],
+  "homepage": "https://github.com/byuksel/bootstrap-backbone-starter-template",
+  "author": {
+    "name": "Baris Yuksel",
+    "url": "http://barisyuksel.com"
+  },
+  "contributors": [
+    {
+      "name": "Baris Yuksel",
+      "url": "http://barisyuksel.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byuksel/bootstrap-backbone-starter-template.git"
+  },
+  "devDependencies": {
+    "backbone": "^1.2.3",
+    "bootstrap": "^3.3.6",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jscs": "^2.3.0",
+    "grunt-markdown": "^0.7.0",
+    "grunt-replace": "^0.11.0",
+    "jquery": "^2.1.4",
+    "jscs-jsdoc": "^1.3.1",
+    "time-grunt": "*",
+    "underscore": "^1.8.3"
+  },
+  "license": "Apache-2.0"
+}

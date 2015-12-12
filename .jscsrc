@@ -1,0 +1,24 @@
+{
+  "preset": "google",
+  "excludeFiles": ["test/output/**", "node_modules/**"],
+  "disallowMultipleVarDecl": { "allExcept": ["require"] },
+  "maximumLineLength": { "value": 80, "allExcept": ["comments"] },
+  "plugins": [ "jscs-jsdoc" ],
+  "jsDoc": {
+    "checkAnnotations": {
+      "preset": "jsdoc3",
+      "extra": { "licence": true },
+    },
+    "checkParamExistence": true,
+    "checkParamNames": true,
+    "requireParamNames": true,
+    "checkRedundantParams": true,
+    "checkReturnTypes": true,
+    "requireReturnType": true,
+    "checkRedundantAccess": true,
+    "checkTypes": "strictNativeCase",
+    "requireHyphenBeforeDescription": true,
+    "requireNewlineAfterDescription": true,
+    "enforceExistence": { "allExcept": ["exports"] }
+  }
+}
