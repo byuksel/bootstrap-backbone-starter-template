@@ -11,10 +11,9 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),  // Parse package.json info
     projectparams: {   // These are the parameters for our project
       // README parameters
-      readme_md_template: './README.md.template',
       readme_md_text_file: './README.md',
       readme_md_html_file: './README.md.html',
-      // Directories that already exist
+      // Various directories
       src_dir: './src/',
       docs_dir: './docs/',
       dist_dir: './dist/',
@@ -40,9 +39,10 @@ module.exports = function(grunt) {
                   path.join('<%= projectparams.dist_dir %>','<%= projectparams.css_dir %>', 'bootstrap.min.css.map'),
                   path.join('<%= projectparams.dist_dir %>', '<%= projectparams.fonts_dir %>', '/glyphicons-halflings-*')
                 ],
-      internal : [ path.join('<%= projectparams.dist_dir %>', 'index.html'),
-                   path.join('<%= projectparams.dist_dir %>', 'favicon.ico'),
-                   path.join('<%= projectparams.dist_dir %>', '*.js') ]
+      internal: [ path.join('<%= projectparams.dist_dir %>', 'index.html'),
+                  path.join('<%= projectparams.dist_dir %>', 'favicon.ico'),
+                  path.join('<%= projectparams.dist_dir %>', '*.js') ],
+      docs: [ path.join('<%= projectparams.docs_dir %>', '/**/*') ],
     },
     copy: {
       main: {
@@ -79,6 +79,13 @@ module.exports = function(grunt) {
         ]
       }
     },
+    flow: {
+      all: {
+        options: {
+          style: 'color'
+        }
+      }
+    },
     jscs: {
       src : [
         path.join('<%= projectparams.src_dir %>', '/**/*.js'),
@@ -86,6 +93,17 @@ module.exports = function(grunt) {
       options: {
         config: ".jscsrc",
         verbose: true // If you need output with rule names http://jscs.info/overview.html#verbose
+      }
+    },
+    jsdoc: {
+      all: {
+        src: [
+          path.join('<%= projectparams.src_dir %>', '/**/*.js')
+        ],
+        options: {
+          destination: '<%= projectparams.docs_dir %>',
+          configure: './jsdoc.conf'
+        }
       }
     },
     // jshint all the src files.
@@ -149,10 +167,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-flow');
   grunt.loadNpmTasks("grunt-jscs");
+  grunt.loadNpmTasks('grunt-jsdoc');
   grunt.loadNpmTasks('grunt-markdown');
   grunt.loadNpmTasks('grunt-replace');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  // Aliases
+  grunt.registerTask('docs', ['clean:docs', 'markdown', 'jsdoc']);
   // Default task
-  grunt.registerTask('default', ['clean', 'jshint', 'jscs', 'copy', 'replace']);
+  grunt.registerTask('default', ['clean', 'jshint', 'jscs', 'flow', 'copy', 'replace']);
 };
