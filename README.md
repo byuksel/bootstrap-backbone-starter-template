@@ -1,3 +1,5 @@
+<img align="right" height="300" src="https://raw.githubusercontent.com/byuksel/bootstrap-backbone-starter-template/master/logo.png">
+
 # Bootstrap Backbone Starter Template
 
 [![npm version](https://badge.fury.io/js/bootstrap-backbone-starter-template.svg)](https://badge.fury.io/js/bootstrap-backbone-starter-template)
